@@ -3,14 +3,14 @@ kafka
 
 Dockerfile for [Apache Kafka](http://kafka.apache.org/)
 
-The image is available directly from [Docker Hub](https://hub.docker.com/r/yongshin/kafka/)
+The image is available directly from [Docker Hub](https://hub.docker.com/r/yongshin/docker-kafka/)
 
-##Pre-Requisites
+## Pre-Requisites
 
 - modify the ```KAFKA_ADVERTISED_HOST_NAME``` in ```docker-compose.yml``` to match your docker host IP (Note: Do not use localhost or 127.0.0.1 as the host ip if you want to run multiple brokers.)
 - if you want to customise any Kafka parameters, simply add them as environment variables in ```docker-compose.yml```, e.g. in order to increase the ```message.max.bytes``` parameter set the environment to ```KAFKA_MESSAGE_MAX_BYTES: 2000000```. To turn off automatic topic creation set ```KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'```
 
-##Usage
+## Usage
 
 Start a cluster:
 
@@ -30,12 +30,12 @@ The default ```docker-compose.yml``` should be seen as a starting point. By defa
 
 - ```docker-compose -f docker-compose-single-broker.yml up```
 
-##Broker IDs
+## Broker IDs
 
 If you don't specify a broker id in your docker-compose file, it will automatically be generated (see [https://issues.apache.org/jira/browse/KAFKA-1070](https://issues.apache.org/jira/browse/KAFKA-1070). This allows scaling up and down. In this case it is recommended to use the ```--no-recreate``` option of docker-compose to ensure that containers are not re-created and thus keep their names and ids.
 
 
-##Automatically create topics
+## Automatically create topics
 
 If you want to have kafka-docker automatically create topics in Kafka during
 creation, a ```KAFKA_CREATE_TOPICS``` environment variable can be
@@ -79,6 +79,6 @@ For example, to connect to a kafka running locally (assumes exposing port 1099)
 
 Jconsole can now connect at ```jconsole 192.168.99.100:1099```
 
-##Tutorial
+## Tutorial
 
 [http://wurstmeister.github.io/kafka-docker/](http://wurstmeister.github.io/kafka-docker/)
