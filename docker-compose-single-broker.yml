@@ -1,11 +1,11 @@
 version: '3.1'
 services:
   zookeeper:
-    image: wurstmeister/zookeeper
+    image: yongshin/docker-zookeeper
     ports:
       - "2181:2181"
   kafka:
-    image: yongshin/kafka
+    image: yongshin/docker-kafka
     ports:
       - "9092:9092"
     environment:
